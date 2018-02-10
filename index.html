@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8"/>
+  <title>Text Transformer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.33.0/codemirror.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header id="header" class="container-fluid">
+  <div class="row">
+  <div class="col offset-lg-2">
+    <h1>Text Transformer</h1>
+    <p class="subhead">Perform a series of "find-and-replace" commands on any kind of text</p>
+  </div>
+</div>
+</header>
+
+<div class="container-fluid">
+<div class="row">
+  <aside class="left col-12 col-lg-2 order-2 order-lg-1">
+    <blockquote class="blockquote">
+      <p>&ldquo;Some people, when confronted with a problem, think
+&lsquo;I know, I'll use regular expressions.&rsquo; Now they have two problems.&rdquo;</p>
+      <footer class="blockquote-footer"><a href="http://regex.info/blog/2006-09-15/247">Jamie Zawinski</a></footer>
+    </blockquote>
+
+    <blockquote class="blockquote">
+      <p>&ldquo;Regular expressions rock. They should absolutely be a key part of every modern coder's toolkit.&rdquo;</p>
+      <footer class="blockquote-footer"><a href="https://blog.codinghorror.com/regular-expressions-now-you-have-two-problems/">Jeff Atwood</a></footer>
+    </blockquote>
+    <h2>Related Tools</h2>
+    <p>(not mine)</p>
+    <ul class="links">
+      <li><a target="_blank" href="https://www.regextester.com">Regex Tester</a></li>
+      <li><a target="_blank" href="https://www.freeformatter.com/xsl-transformer.html">XSL Transformer</a></li>
+      <li><a target="_blank" href="http://jsbeautifier.org/">JavaScript Beautifier</a></li>
+    </ul>
+
+  </aside>
+  <main id="main" class="col-12 col-lg-8 order-1 order-lg-2">
+    <div class="row">
+    <div class="col">
+
+      <div class="row">
+        <div class="col col-lg-7">
+      <label for="transforms">1. Enter Substitutions</label>
+      <p class="description">Enter substitution rules, using the <code>s/text/replacement/flags</code> format from
+        Perl.<br/><span class="example"><a href="javascript:Example()"><i class="fas fa-caret-right"></i> Show me an example</a></span>
+      </p>
+    </div>
+    <div class="col col-md-5 presets-wrapper">
+        <label for="presets">..or choose a Preset</label>
+        <select class="form-control" name="presets" id="presets"> </select>
+        <!--
+        <p class="presets-disclaimer">
+        These are examples and are not guaranteed to be bug-free <i class="far fa-frown"></i>.
+        </p>
+      -->
+      </div>
+
+    </div>
+
+    <textarea class="form-control" id="transforms" placeholder="s/text/replacement/"></textarea>
+
+      <div class="row io-boxes">
+        <div class="col">
+          <label for="input">2. Enter Input Text</label>
+          <textarea class="form-control" id="input"></textarea>
+        </div>
+        <div class="col">
+          <label for="output">3. Get Output!</label>
+          <textarea class="form-control" id="output"></textarea>
+          <div id="output-details"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p id="error" class="alert alert-danger"></p>
+        </div>
+      </div>
+    </main>
+
+  <aside class="right col-12 col-lg-2 order-3">
+    <h2>Regex Cheatsheet</h2>
+
+    <p><code>.</code>	any character except newline <br/>
+    <code>\w \d \s</code>	word, digit, whitespace <br/>
+    <code>\W \D \S</code>	not word, digit, whitespace <br/>
+    <code>[abc]</code>	any of a, b, or c <br/>
+    <code>[^abc]</code> not a, b, or c <br/>
+    <code>[a-g]</code>	character between a & g
+    </p>
+
+    <h3>Groups & Anchors</h3>
+    <p>
+    <code>(abc)</code> capture group <br/>
+    <code>$1</code> backreference to group #1 <br/>
+    <code>^abc$</code>	start / end of the string
+    </p>
+
+    <h3>Quantifiers & Alternation</h3>
+    <p>
+    <code>a* a+ a?</code> 0 or more, 1 or more, 0 or 1 <br/>
+    <code>a{5} a{2,}</code> exactly five, two or more <br/>
+    <code>a{1,3}</code> between one & three <br/>
+    <code>ab|cd</code> match ab or cd
+    </p>
+
+    <h3>Common Flags</h3>
+    <p>
+      <code>g</code> Global search. <br/>
+      <code>i</code> Case-insensitive search. <br/>
+      <code>m</code> Multi-line search. <br/>
+    </p>
+
+    <p><a target="_blank" href="https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/">Full Reference</a></p>
+  </aside>
+</div><!-- /.row -->
+</div>
+
+
+<footer id="footer" class="container-fluid">
+  <div class="row">
+  <div class="col offset-lg-2">
+    by <a href="http://daniel.evilsizors.com">Daniel Evilsizor</a>
+  </div>
+  <div class="col-lg-8"
+</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.33.0/codemirror.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.33.0/addon/mode/simple.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.33.0/addon/display/placeholder.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

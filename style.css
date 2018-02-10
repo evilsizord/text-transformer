@@ -1,0 +1,185 @@
+
+body {
+  font-size: 15px;
+}
+
+#header {
+  background: #5400ad;
+}
+#header h1 {
+  color: #fff;
+  font-size: 2rem;
+  margin: 0.5rem 0 .25rem;
+  line-height: 1;
+}
+#header .subhead {
+  color: #dbcfe8;
+  font-size: 0.9rem;
+}
+
+aside,
+main {
+  padding-top: 1rem;
+}
+
+aside.left {
+  background: #f0f0f0;
+}
+aside.right {
+  background: #f0f0f0;
+}
+
+aside,
+aside .blockquote {
+  font-size: 0.83rem;
+}
+aside .blockquote p {
+  margin-bottom: .5rem;
+}
+aside h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #666;
+  margin-top: 2rem;
+}
+aside > h2:first-child {
+  margin-top: 0;
+}
+aside h3 {
+  font-size: .9rem;
+}
+aside ul.links {
+  list-style: none;
+  padding: 0;
+}
+
+aside.left,
+aside.right,
+#main {
+  padding-top: 2rem;
+}
+
+
+#main {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 3rem;
+}
+#error {display:none;}
+
+label {
+  font-weight: bold;
+  display:block;
+}
+
+.example {font-size: .9em;}
+
+textarea.form-control,
+.CodeMirror {
+  width: 100%;
+  height: 140px;
+  font-family: "Source Code Pro", monospace;
+  color: #666;
+  padding: .375rem .75rem;
+  border: 1px solid #ced4da;
+  border-radius: 0;
+  border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.CodeMirror-focused {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.CodeMirror-empty {
+  color: #aaa; /* simulate placeholder styles */
+}
+
+
+.presets-wrapper { float: right; margin-bottom: 1em;}
+.presets-disclaimer {
+  font-size: .75em;
+  color: #777;
+  margin: 0.3em 0;
+}
+
+.row.io-boxes {margin-top: 1rem;}
+
+#output-details {
+  font-size: .8rem;
+  padding: .5em;
+  color: #228b22;
+}
+
+.cm-s-default span.cm-keyword { font-weight: bold; color: #000; }
+.cm-s-default span.cm-comment { color: #0a0; }
+.cm-s-default span.cm-flags {color: #ff8f00;}
+.cm-s-default span.cm-operator {font-weight:bold;color: #000;padding: 0 5px;}
+.cm-s-default span.cm-start-operator {font-weight:bold;color: #000;}
+.cm-s-default span.cm-variable {color: #07b;}
+
+/*
+.cm-s-eclipse span.cm-meta { color: #FF1717; }
+.cm-s-eclipse span.cm-keyword { line-height: 1em; font-weight: bold; color: #7F0055; }
+.cm-s-eclipse span.cm-atom { color: #219; }
+.cm-s-eclipse span.cm-number { color: #164; }
+.cm-s-eclipse span.cm-def { color: #00f; }
+.cm-s-eclipse span.cm-variable { color: black; }
+.cm-s-eclipse span.cm-variable-2 { color: #0000C0; }
+.cm-s-eclipse span.cm-variable-3, .cm-s-eclipse span.cm-type { color: #0000C0; }
+.cm-s-eclipse span.cm-property { color: black; }
+.cm-s-eclipse span.cm-operator { color: black; }
+.cm-s-eclipse span.cm-comment { color: #3F7F5F; }
+.cm-s-eclipse span.cm-string { color: #2A00FF; }
+.cm-s-eclipse span.cm-string-2 { color: #f50; }
+.cm-s-eclipse span.cm-qualifier { color: #555; }
+.cm-s-eclipse span.cm-builtin { color: #30a; }
+.cm-s-eclipse span.cm-bracket { color: #cc7; }
+.cm-s-eclipse span.cm-tag { color: #170; }
+.cm-s-eclipse span.cm-attribute { color: #00c; }
+.cm-s-eclipse span.cm-link { color: #219; }
+.cm-s-eclipse span.cm-error { color: #f00; }
+.cm-s-eclipse .CodeMirror-activeline-background { background: #e8f2ff; }
+.cm-s-eclipse .CodeMirror-matchingbracket { outline:1px solid grey; color:black !important; }
+*/
+
+
+#footer {
+  background: #223;
+color: #ccc;
+font-size: .8rem;
+}
+#footer .col {
+      padding: 1rem;
+}
+#footer a {color:#fff;}
+
+
+@media (min-width: 1100px) and (min-height: 650px) {
+  /* flexbox height is still too buggy, so just use position absolute */
+  #header {height:75px;}
+  #footer {position:fixed;bottom:0;width:100%; height: 50px;}
+
+  aside.right {
+      display: block;
+      position: absolute;
+      right: 0;
+      width: 16.666667%;
+      height: calc(100% - 75px - 50px);
+  }
+  aside.left {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 16.666667%;
+    height: calc(100% - 75px - 50px);
+  }
+  #main {
+      display: block;
+      position: relative;
+      left: 16.666667%;
+  }
+
+}
