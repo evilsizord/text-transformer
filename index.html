@@ -8,21 +8,24 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.33.0/codemirror.css">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
 
 </head>
 <body>
 
 <header id="header" class="container-fluid">
   <div class="row">
-  <div class="col offset-lg-2">
+  <div class="col">
     <h1>Text Transformer</h1>
-    <p class="subhead">Perform a series of "find-and-replace" commands on any kind of text</p>
+    <p class="subhead">An easy way to apply a series of regular expressions to any kind of text</p>
   </div>
 </div>
 </header>
 
 <div class="container-fluid">
 <div class="row">
+
+    <!--
   <aside class="left col-12 col-lg-2 order-2 order-lg-1">
     <blockquote class="blockquote">
       <p>&ldquo;Some people, when confronted with a problem, think
@@ -37,21 +40,24 @@
     <h2>Related Tools</h2>
     <p>(not mine)</p>
     <ul class="links">
+      <li><a target="_blank" href="https://www.regex101.com">Regex 101</a></li>  
       <li><a target="_blank" href="https://www.regextester.com">Regex Tester</a></li>
       <li><a target="_blank" href="https://www.freeformatter.com/xsl-transformer.html">XSL Transformer</a></li>
       <li><a target="_blank" href="http://jsbeautifier.org/">JavaScript Beautifier</a></li>
     </ul>
 
   </aside>
-  <main id="main" class="col-12 col-lg-8 order-1 order-lg-2">
+    -->
+
+  <main id="main" class="col-12 col-lg-10 order-1">
     <div class="row">
     <div class="col">
 
       <div class="row">
         <div class="col col-lg-7">
-      <label for="transforms">1. Enter Substitutions</label>
-      <p class="description">Enter substitution rules, using the <code>s/text/replacement/flags</code> format from
-        Perl.<br/><span class="example"><a href="javascript:Example()"><i class="fas fa-caret-right"></i> Show me an example</a></span>
+      <label for="transforms">Substitutions</label>
+      <p class="description">Enter regex substitution rules, using the <code>s/text/replacement/flags</code> format from
+        Perl.
       </p>
     </div>
     <div class="col col-md-5 presets-wrapper">
@@ -70,11 +76,15 @@
 
       <div class="row io-boxes">
         <div class="col">
-          <label for="input">2. Enter Input Text</label>
+          <label for="input">Input Text</label>
+          <p class="description">Enter the text you want to change
+          </p>
           <textarea class="form-control" id="input"></textarea>
         </div>
         <div class="col">
-          <label for="output">3. Get Output!</label>
+          <label for="output">Output</label>
+          <p class="description">Final text shows here
+          </p>
           <textarea class="form-control" id="output"></textarea>
           <div id="output-details"></div>
         </div>
@@ -86,7 +96,7 @@
       </div>
     </main>
 
-  <aside class="right col-12 col-lg-2 order-3">
+  <aside class="right col-12 col-lg-2 order-2">
     <h2>Regex Cheatsheet</h2>
 
     <p><code>.</code>	any character except newline <br/>
@@ -126,10 +136,10 @@
 
 <footer id="footer" class="container-fluid">
   <div class="row">
-  <div class="col col-lg-4 offset-lg-2">
+  <div class="col col-lg-6 ">
     by <a href="http://daniel.evilsizors.com">Daniel Evilsizor</a>
   </div>
-  <div class="col col-lg-4 text-right">
+  <div class="col col-lg-6 text-right">
     <a class="github" href="https://github.com/evilsizord/text-transformer"><i class="fab fa-github"></i></a>
   </div>
 </div>

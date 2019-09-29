@@ -1,20 +1,23 @@
 
 body {
   font-size: 15px;
+  background: #f8f8f8;
 }
 
 #header {
   background: #5400ad;
+  padding: .5rem 50px;
 }
 #header h1 {
   color: #fff;
   font-size: 2rem;
-  margin: 0.5rem 0 .25rem;
+  margin: 0rem 0 .3rem;
   line-height: 1;
 }
 #header .subhead {
   color: #dbcfe8;
   font-size: 0.9rem;
+  margin:0;
 }
 
 aside,
@@ -61,8 +64,8 @@ aside.right,
 
 
 #main {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
   padding-bottom: 3rem;
 }
 #error {display:none;}
@@ -70,6 +73,7 @@ aside.right,
 label {
   font-weight: bold;
   display:block;
+  font-size: 1.2rem;
 }
 
 .example {font-size: .9em;}
@@ -79,11 +83,13 @@ textarea.form-control,
   width: 100%;
   height: 140px;
   font-family: "Source Code Pro", monospace;
-  color: #666;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #555;
   padding: .375rem .75rem;
   border: 1px solid #ced4da;
   border-radius: 0;
-  border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .CodeMirror-focused {
@@ -116,9 +122,18 @@ textarea.form-control,
 .cm-s-default span.cm-keyword { font-weight: bold; color: #000; }
 .cm-s-default span.cm-comment { color: #0a0; }
 .cm-s-default span.cm-flags {color: #ff8f00;}
-.cm-s-default span.cm-operator {font-weight:bold;color: #000;padding: 0 5px;}
+.cm-s-default span.cm-operator {font-weight:bold;color: #000;padding: 0 5px; background-color: #fffbce;}
 .cm-s-default span.cm-start-operator {font-weight:bold;color: #000;}
 .cm-s-default span.cm-variable {color: #07b;}
+
+.CodeMirror-gutters {
+    border-right: none;
+    background-color: transparent;
+}
+.CodeMirror-linenumber {
+    color: #bbb;
+    margin-left: -8px;
+}
 
 /*
 .cm-s-eclipse span.cm-meta { color: #FF1717; }
@@ -159,14 +174,14 @@ font-size: .8rem;
 
 @media (min-width: 1100px) and (min-height: 650px) {
   /* flexbox height is still too buggy, so just use position absolute */
-  #header {height:75px;}
+  
   #footer {position:fixed;bottom:0;width:100%; height: 50px;}
 
   aside.right {
       display: block;
       position: absolute;
       right: 0;
-      width: 16.666667%;
+      /*width: 16.666667%;*/
       height: calc(100% - 75px - 50px);
   }
   aside.left {
@@ -179,7 +194,7 @@ font-size: .8rem;
   #main {
       display: block;
       position: relative;
-      left: 16.666667%;
+      /*left: 16.666667%;*/
   }
 
 }

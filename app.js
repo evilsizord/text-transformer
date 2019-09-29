@@ -45,6 +45,7 @@ var presets = {
 })(function(CodeMirror) {
 "use strict";
 
+// Define a custom parse mode for our text transformer
 CodeMirror.defineMode("TextTransformer", function() {
 
   function startLine(stream, state) {
@@ -116,9 +117,17 @@ CodeMirror.defineMode("TextTransformer", function() {
 });
 });
 
-
-
 var cmTransforms;
+
+
+function Example()
+{
+  cmTransforms.setValue("# Simple Example\ns/cat/dog/\ns/love/❤/"); // heart is U+2764
+  $('#input').val('I love my cat named Woofy!');
+  Update();
+}
+
+
 
 $(function() {
   // populate presets
@@ -134,12 +143,16 @@ $(function() {
   $('#presets').html(menu);
 
   cmTransforms = CodeMirror.fromTextArea(document.getElementById('transforms'), {
-    mode: 'TextTransformer'
+    mode: 'TextTransformer',
+    lineNumbers: true
   });
 
 
   $('#input').on('input', Update);
   cmTransforms.on('change', Update);
+
+  // Start with example
+  Example();
 
 });
 
@@ -173,26 +186,6 @@ $('#presets').on('change', function() {
   }
 
 });
-
-
-
-function Example()
-{
-  var lines = [
-    '# Simple Example',
-    's/cat/dog/',
-    's/not so fond of/downright ecstatic about/i'
-  ].join("\n");
-
-  cmTransforms.setValue(lines);
-
-  $('#input').val(
-    'I love my cat named Woof.' + "\n" +
-    'But I\'m NOT SO FOND of my roommate, Ben!'
-  );
-
-  Update();
-}
 
 
 
@@ -254,6 +247,7 @@ function Update() {
       replace = parts[1];
 
       replace = replace.replace('\\/', '\/');
+      replace = replace.replace('\\n', "\n");
 
       if (parts.length == 3) {
         flags = parts[2];
