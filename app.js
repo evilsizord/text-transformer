@@ -25,7 +25,32 @@ var presets = {
       's/<(span|i|em|b|strong|div)\\s*\\/>//g',
       '# Remove empty tags (except for p)',
       's/<(span|i|em|b|strong|div)><\\/\\1>//g'
-    ]}
+    ]},
+    {name:'Normalize URLs', lines: [
+        '# Trim extra spaces',
+        's/^[ \\t]*(.*?)[ \\t]*$/$1/gm',
+        '# Add protocol where missing',
+        's/^(?!http)(.*)$/https:\\/\\/$1/gm',
+        '# Make all URLs HTTPS',
+        's/http:\\/\\/(.*)/https:\\/\\/$1/gm',
+        '# Remove index.php',
+        's/(.*)index\.php/$1/g',
+        '# Remove trailing slash',
+        's/(.*)\\/$/$1/gm',
+        '# Optional - replace mysite.com with www.mysite.com',
+        's/^(https:\\/\\/)(mysite\\.com)(.*)$/$1www.$2$3/gm'
+      ]}
+
+    /**
+      # Add protocol where missing
+      s/^(?!http)(.*)$/https:\/\/$1/gm
+      # Make all URLs HTTPS
+      s/http:\/\/(.*)/https:\/\/$1/gm
+      # Remove index.php
+      s/(.*)index.php/$1/g
+      # Remove trailing slash
+      s/^(.*)\/$/$1/gm
+ */
 
   ]
 
@@ -246,8 +271,8 @@ function Update() {
       search = parts[0];
       replace = parts[1];
 
-      replace = replace.replace('\\/', '\/');
-      replace = replace.replace('\\n', "\n");
+      replace = replace.replace(/\\\//g, '/');
+      replace = replace.replace(/\\n/g, "\n");
 
       if (parts.length == 3) {
         flags = parts[2];
